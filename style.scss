@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //font-family: ;
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+  overflow: hidden;
+}
+
+//!------設定旋轉動畫
+.text {
+  position: absolute;
+  color: #fff;
+  font-size: 1.5em;
+  user-select: none;
+  pointer-events: none;
+  animation: animate 7.5s linear infinite;
+  //!---使打散字 排列成圓(不再是直線排列)
+  span {
+    position: absolute;
+    top: -100px;
+    display: inline-block;
+    transform-origin: 0 100px; //!---排列成圓--設定元素變化的原點
+    //!---語法transform-origin: x-axis y-axis z-axis;
+    //!---用法參考https://developer.mozilla.org/zh-TW/docs/Web/CSS/transform-origin
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(360deg); //!欲改為 順轉 0%起始為 360deg
+  }
+  100% {
+    transform: rotate(0deg); //!欲改為 順轉 100%終點為 0deg
+  }
+}
